@@ -218,7 +218,7 @@ function train(f::Chain, solver::BetaZeroSolver; verbose::Bool=false, results=no
         n = size(ỹ,1)-1
         vmask = vcat(1, zeros(Int,n))
         if device == gpu
-            vmask = Flux.CuArray(vmask)
+            vmask = cu(vmask)
         end
         pmask = 1 .- vmask
         v = vmask .* ỹ # value prediction
