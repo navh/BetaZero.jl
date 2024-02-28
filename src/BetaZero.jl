@@ -16,7 +16,7 @@ include(joinpath(@__DIR__, "..", "submodules", "MCTS", "src", "MCTS.jl"))
 @reexport using POMDPs
 @reexport using Random
 @reexport using StatsBase
-using CUDA: cu
+using CUDA: cu, reclaim
 using Distributions
 using Distributed
 using Metalhead

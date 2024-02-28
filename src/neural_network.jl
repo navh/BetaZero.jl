@@ -485,7 +485,8 @@ function train(f::Chain, solver::BetaZeroSolver; verbose::Bool=false, results=no
         x_train = y_train = x_valid = y_valid = nothing
         GC.gc()
         if device == gpu
-            Flux.CUDA.reclaim()
+            # Flux.CUDA.reclaim()
+            reclaim()
         end
     end
 
